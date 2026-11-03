@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { playlists, spotifyLinks } from '@/lib/playlists';
 import { Sleeve } from '@/components/sleeve';
 import { Suggestion } from '@/components/suggestion';
-export function generateStaticParams() { return playlists.map(p => ({ slug: p.id })); }
+export function generateStaticParams() { return playlists.filter(p => p.id !== 'office').map(p => ({ slug: p.id })); }
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> { const { slug } = await params; const p = playlists.find(p => p.id === slug); return { title: p ? `${p.title} — Milad’s Mixtapes` : 'Mixtape not found' }; }
 export default async function PlaylistPage({ params }: { params: Promise<{ slug: string }> }) {
  const { slug } = await params; const playlist = playlists.find(p => p.id === slug); if (!playlist) notFound(); const spotify = spotifyLinks(playlist.url);
