@@ -36,3 +36,7 @@ Point the physical office QR code to `https://YOUR-DOMAIN/music/office` after de
 ## Suggestions and future integration
 
 The accessible native dialog previews song URL, destination, optional name, and private note. Submission is disabled; there is no fetch, simulated success, or persistent storage. Typed `SongSuggestion` and `Contributor` contracts provide an integration seam. Future work can connect a server-side adapter to Django or another API, validate and rate-limit on the server, and define contributor consent and private-note access before enabling submission. No contributor identities or counts are fabricated.
+
+## Current office review
+
+The dedicated `/music/office` implementation is provisional and awaiting visual approval. See [desktop/mobile captures and reference comparison](../docs/review/README.md). Office cross-navigation remains a placeholder; the other page designs predate this review branch. The compact office suggestion card uses a desktop sticky rail and follows the player on mobile so it cannot obscure playback.
